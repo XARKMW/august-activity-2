@@ -1,3 +1,13 @@
+:root {
+  --accent-primary: #9eb644;
+  --accent-primary-dark: #8ca33d;
+  --accent-secondary: #EBE772;
+  --accent-tertiary: #1B1947;
+  --content-inverse: #1a1a1a;
+  --content-primary: #fff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,9 +27,10 @@
 }
 
 .logo {
-  height: 40px;
+  height: 2rem;
 }
 
+/* Navigation Link Styles */
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -28,15 +39,72 @@
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: var(--content-primary);
 }
 
-.book-button {
-  background-color: #9eb644;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+.nav-links a:not(.btn) {
   text-decoration: none;
+  color: var(--content-primary);
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-primary);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.btn):hover {
+  color: var(--accent-primary);
+}
+
+.nav-links a:not(.btn):hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Base Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Button Variations */
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--content-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-dark);
 }
 
 /* Hero Section */
@@ -51,7 +119,7 @@
 }
 
 .hero-content {
-  color: white;
+  color: var(--content-primary);
   z-index: 1;
   gap: 2.5rem;
   display: flex;
@@ -78,7 +146,7 @@
 }
 
 .feature-text {
-  background-color: #f4e242;
+  background-color: var(--accent-secondary);
   padding: 4rem;
   display: flex;
   align-items: center;
@@ -86,7 +154,7 @@
 
 .feature-text h2 {
   font-size: 2.5rem;
-  color: #1a1a1a;
+  color: var(--accent-tertiary);
   max-width: 400px;
 }
 
@@ -97,8 +165,8 @@
 
 /* Footer */
 footer {
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--accent-tertiary);
+  color: var(--content-primary);
   padding: 1rem 5%;
 }
 
@@ -109,7 +177,7 @@ footer {
 }
 
 .footer-links a {
-  color: white;
+  color: var(--content-primary);
   text-decoration: none;
   font-size: 0.9rem;
 }
