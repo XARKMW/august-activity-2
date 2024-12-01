@@ -308,8 +308,6 @@ footer {
   .mobile-menu.active {
     right: 0;
   }
-}
-
 
 @media (max-width: 480px) {
   .footer-links a {
